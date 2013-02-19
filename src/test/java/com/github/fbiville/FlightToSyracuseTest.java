@@ -2,10 +2,10 @@ package com.github.fbiville;
 
 import org.junit.Test;
 
-import static com.github.fbiville.SyracuseFlight.nextRound;
+import static com.github.fbiville.FlightToSyracuse.nextRound;
 import static org.fest.assertions.Assertions.assertThat;
 
-public class SyracuseFlightTest {
+public class FlightToSyracuseTest {
 
     @Test
     public void should_half_2() {
@@ -29,36 +29,36 @@ public class SyracuseFlightTest {
 
     @Test
     public void should_store_sequence_of_1_when_start_is_1() {
-        SyracuseFlight flight = new SyracuseFlight(1L);
-        flight.startFly();
+        FlightToSyracuse flight = new FlightToSyracuse(1L);
+        flight.takeOff();
         assertThat(flight.getFlightSequence()).containsExactly(1L);
     }
 
     @Test
     public void should_store_sequence_of_2_and_1_when_start_is_2() {
-        SyracuseFlight flight = new SyracuseFlight(2L);
-        flight.startFly();
+        FlightToSyracuse flight = new FlightToSyracuse(2L);
+        flight.takeOff();
         assertThat(flight.getFlightSequence()).containsExactly(2L, 1L);
     }
 
     @Test
     public void should_store_sequence_of_5_16_8_4_2_and_1_when_start_is_5() {
-        SyracuseFlight flight = new SyracuseFlight(5L);
-        flight.startFly();
+        FlightToSyracuse flight = new FlightToSyracuse(5L);
+        flight.takeOff();
         assertThat(flight.getFlightSequence()).containsExactly(5L,16L,8L,4L,2L,1L);
     }
 
     @Test
     public void should_return_high_flying_time_of_11_for_start_15() {
-        SyracuseFlight flight = new SyracuseFlight(15L);
-        flight.startFly();
+        FlightToSyracuse flight = new FlightToSyracuse(15L);
+        flight.takeOff();
         assertThat(flight.getHighFlyingTime()).isEqualTo(11L);
     }
 
     @Test
     public void should_return_max_altitude_of_160_for_start_15() {
-        SyracuseFlight flight = new SyracuseFlight(15L);
-        flight.startFly();
+        FlightToSyracuse flight = new FlightToSyracuse(15L);
+        flight.takeOff();
         assertThat(flight.getMaxAltitude()).isEqualTo(160L);
     }
 

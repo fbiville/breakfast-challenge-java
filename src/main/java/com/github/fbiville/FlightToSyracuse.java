@@ -3,18 +3,23 @@ package com.github.fbiville;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.base.Objects.toStringHelper;
 import static java.lang.Math.log;
 import static java.lang.Math.pow;
 import static java.util.Collections.max;
 
-public class SyracuseFlight {
+public class FlightToSyracuse {
 
     private final List<Long> flightSequence = new ArrayList<Long>();
     private final long initial;
 
-    public SyracuseFlight(long initial) {
+    public FlightToSyracuse(long initial) {
         this.initial = initial;
         flightSequence.add(initial);
+    }
+
+    public FlightToSyracuse(String planeName) {
+        this(new PlaneToLong().convert(planeName));
     }
 
     static long nextRound(long result) {
@@ -22,7 +27,7 @@ public class SyracuseFlight {
         return result;
     }
 
-    public long startFly() {
+    public long takeOff() {
         return iterate(initial);
     }
 
@@ -43,6 +48,15 @@ public class SyracuseFlight {
             result++;
         }
         return result;
+    }
+
+    public String toString() {
+        return toStringHelper(this)
+            .add("Initial value", initial)
+            .add("High-flying time", getHighFlyingTime())
+            .add("Max altitude", getMaxAltitude())
+            .add("Flight sequence", flightSequence)
+        .toString();
     }
 
     private long iterate(long result) {
