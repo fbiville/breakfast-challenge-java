@@ -4,6 +4,6 @@
 
 ## HOWTO?
 
-`FlightToSyracuse flight = new FlightToSyracuse("JoeLeTaxi");`
-`flight.takeOff();`
-`System.out.println(flight);`
+	FlightToSyracuse flight = new FlightToSyracuse("JoeLeTaxi");
+	flight.takeOff();
+	System.out.println(flight);
